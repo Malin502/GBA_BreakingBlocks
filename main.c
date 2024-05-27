@@ -211,6 +211,9 @@ void move_paddle(hword i) {
             paddleX += 3;
 
             direction_vector_paddle = 1;
+            if(paddleX > SCREEN_WIDTH - PADDLE_WIDTH) {
+                paddleX = SCREEN_WIDTH - PADDLE_WIDTH;
+            }
         } 
         
     } else if (i == 2) {
@@ -219,6 +222,9 @@ void move_paddle(hword i) {
             draw_rectangle(paddleX + PADDLE_WIDTH - 1, paddleY, 3, PADDLE_HEIGHT, COLOR_BLACK);
             paddleX = paddleX - 3;
             direction_vector_paddle = 2;
+            if(paddleX < 0) {
+                paddleX = 0;
+            }
         }
     } else {
         direction_vector_paddle = 0;

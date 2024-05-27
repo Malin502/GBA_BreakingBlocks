@@ -871,6 +871,15 @@ move_paddle:
 	ldr	r3, .L54+8
 	mov	r2, #1
 	strh	r2, [r3]	@ movhi
+	ldr	r3, .L54
+	ldrh	r3, [r3]
+	mov	r3, r3, asl #16
+	mov	r3, r3, asr #16
+	cmp	r3, #195
+	ble	.L51
+	ldr	r3, .L54
+	mov	r2, #195
+	strh	r2, [r3]	@ movhi
 	b	.L51
 .L49:
 	ldrh	r3, [fp, #-6]	@ movhi
@@ -915,6 +924,15 @@ move_paddle:
 	strh	r3, [r2]	@ movhi
 	ldr	r3, .L54+8
 	mov	r2, #2
+	strh	r2, [r3]	@ movhi
+	ldr	r3, .L54
+	ldrh	r3, [r3]
+	mov	r3, r3, asl #16
+	mov	r3, r3, asr #16
+	cmp	r3, #0
+	bge	.L51
+	ldr	r3, .L54
+	mov	r2, #0
 	strh	r2, [r3]	@ movhi
 	b	.L51
 .L52:
